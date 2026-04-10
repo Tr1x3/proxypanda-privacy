@@ -70,6 +70,30 @@
         z-index: 1;
       }
 
+      .hero {
+        display: grid;
+        place-items: center;
+        gap: 14px;
+        margin-bottom: 14px;
+      }
+
+      .hero-logo-frame {
+        width: min(540px, 100%);
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(125, 255, 58, 0.32);
+        box-shadow:
+          0 0 0 1px rgba(125, 255, 58, 0.18),
+          0 0 30px rgba(125, 255, 58, 0.28),
+          0 14px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-logo {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
       h1,
       h2 {
         line-height: 1.3;
@@ -127,11 +151,30 @@
         border-radius: 6px;
         padding: 1px 6px;
       }
+
+      @media (max-width: 640px) {
+        .card {
+          padding: 18px 14px;
+        }
+
+        h1 {
+          font-size: 1.35rem;
+        }
+      }
     </style>
   </head>
   <body>
     <main class="wrap">
       <section class="card">
+        <div class="hero">
+          <div class="hero-logo-frame">
+            <img
+              class="hero-logo"
+              src="./assets/proxypanda-logo.png"
+              alt="ProxyPanda VPN logo"
+            />
+          </div>
+        </div>
         <h1>🔐 Политика конфиденциальности ProxyPanda VPN Bot</h1>
         <p class="muted">Дата вступления в силу: 10.04.2026</p>
         <p>
