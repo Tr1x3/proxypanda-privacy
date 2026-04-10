@@ -10,12 +10,15 @@
     />
     <style>
       :root {
-        --bg: #0b1020;
-        --card: #121a32;
-        --muted: #9fb0d1;
-        --text: #e7eefc;
-        --accent: #60a5fa;
-        --border: #263357;
+        --bg: #050807;
+        --bg-soft: #0b140f;
+        --card: #0e1412;
+        --muted: #a9b7ae;
+        --text: #edf3ef;
+        --accent: #7fff3a;
+        --accent-strong: #9dff4f;
+        --border: #2a3a31;
+        --glow: rgba(125, 255, 58, 0.28);
       }
 
       * {
@@ -26,7 +29,10 @@
       body {
         margin: 0;
         padding: 0;
-        background: radial-gradient(circle at 20% 0%, #1e2b54 0%, var(--bg) 45%);
+        background:
+          radial-gradient(circle at 15% 0%, rgba(125, 255, 58, 0.2) 0%, rgba(5, 8, 7, 0) 34%),
+          radial-gradient(circle at 92% 8%, rgba(125, 255, 58, 0.12) 0%, rgba(5, 8, 7, 0) 30%),
+          linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 38%, #040504 100%);
         color: var(--text);
         font-family: Inter, Segoe UI, Arial, sans-serif;
         line-height: 1.6;
@@ -36,14 +42,31 @@
         max-width: 900px;
         margin: 0 auto;
         padding: 28px 18px 64px;
+        position: relative;
+      }
+
+      .wrap::before {
+        content: "";
+        position: absolute;
+        inset: 0 8px auto;
+        height: 180px;
+        background: radial-gradient(circle at 50% 50%, var(--glow) 0%, rgba(125, 255, 58, 0) 70%);
+        pointer-events: none;
+        z-index: 0;
       }
 
       .card {
-        background: rgba(18, 26, 50, 0.84);
+        background: linear-gradient(160deg, rgba(14, 20, 18, 0.95) 0%, rgba(8, 12, 10, 0.96) 100%);
         border: 1px solid var(--border);
         border-radius: 16px;
         padding: 22px;
-        backdrop-filter: blur(8px);
+        box-shadow:
+          0 0 0 1px rgba(125, 255, 58, 0.08),
+          0 16px 40px rgba(0, 0, 0, 0.5),
+          0 0 36px rgba(125, 255, 58, 0.14);
+        backdrop-filter: blur(6px);
+        position: relative;
+        z-index: 1;
       }
 
       h1,
@@ -54,11 +77,14 @@
 
       h1 {
         font-size: 1.65rem;
+        color: var(--accent-strong);
+        text-shadow: 0 0 16px rgba(125, 255, 58, 0.35);
       }
 
       h2 {
         margin-top: 28px;
         font-size: 1.15rem;
+        color: #c5fca2;
       }
 
       p,
@@ -72,6 +98,11 @@
 
       a {
         color: var(--accent);
+        text-decoration-color: rgba(125, 255, 58, 0.45);
+      }
+
+      a:hover {
+        color: var(--accent-strong);
       }
 
       ul {
@@ -83,9 +114,17 @@
         padding: 5px 10px;
         border-radius: 999px;
         border: 1px solid var(--border);
-        background: #142041;
+        background: linear-gradient(180deg, rgba(125, 255, 58, 0.14) 0%, rgba(14, 20, 18, 0.9) 100%);
         color: var(--muted);
         font-size: 0.9rem;
+      }
+
+      code {
+        background: rgba(125, 255, 58, 0.1);
+        border: 1px solid rgba(125, 255, 58, 0.18);
+        color: #d6ffba;
+        border-radius: 6px;
+        padding: 1px 6px;
       }
     </style>
   </head>
